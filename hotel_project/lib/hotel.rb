@@ -27,8 +27,22 @@ class Hotel
         end 
     end 
 
-    def check_in
+    def check_in(person, roomname)
+        if self.room_exists?(roomname)
+            if @rooms[roomname].add_occupant(person)
+                p 'check in successful'
+            else  
+                p 'sorry, room is full'
+            end
+        else  
+            p "sorry, room does not exist"
+        end 
 
+    end 
+
+    def has_vacancy?
+        return false if @rooms.all? {|room| room.full?}
+    return true 
     end 
 
 
