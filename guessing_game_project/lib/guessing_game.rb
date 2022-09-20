@@ -1,12 +1,7 @@
 class GuessingGame
-    attr_reader :num_attempts, 
+    attr_reader :num_attempts
+
     def initialize(min, max)
-        p "Please enter a min number"
-        @min = gets.chomp.to_i
-
-        p "Please enter a max number"
-        @max = gets.chomp.to_i
-
         @secret_num = rand(min..max)
         @num_attempts = 0
         @game_over = false
@@ -28,6 +23,11 @@ class GuessingGame
         end 
     end 
     
+    def ask_user 
+    p 'enter a number'
+    response = gets.chomp.to_i
+    check_num(response)
+    end 
 
 
 end
